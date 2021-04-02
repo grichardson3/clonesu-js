@@ -1,0 +1,43 @@
+.osuCircle {
+    border: 2px solid black;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    position: absolute;
+    user-select: none;
+    width: 120px;
+    height: 120px;
+}
+
+.osuNumber {
+    font-size: 3em;
+    font-weight: 900;
+    text-align: center;
+}
+
+.osuCircleTimer {
+    color: white;
+}
+
+#totalScoreText {
+    position: absolute;
+    font-size: 3em;
+    right: 20px;
+    text-align: right;
+    user-select: none;
+}
+
+#circle1 {
+    background: red;
+}
+
+#circle2 {
+    background: green;
+}
+
+#circle3 {
+    background: blue;
+}
