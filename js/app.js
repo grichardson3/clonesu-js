@@ -86,8 +86,7 @@ var playGame = function(){
             createCircle.setAttribute("id", `circle${circle.number}`);
             createCircle.setAttribute(
                 "style",
-                `border: ${circleBorder}px solid black;
-                left: ${circle.xValue}px;
+                `left: ${circle.xValue}px;
                 top: ${circle.yValue}px;`
             );
             createNumber.setAttribute("class", "osuNumber");
@@ -130,14 +129,13 @@ var playGame = function(){
                 setTimeout(function(){
                     if (document.querySelector(`#timer${circle.id}`)) {
                         document.querySelector(`#timer${circle.id}`).textContent = `${circleScore + 1} / 20`;
-                        document.querySelector(`#circle${circle.id}`).style.border = `${circleBorder}px solid black;`;
                     }
-                    circleBorder = circleBorder - 2;
                     circleScore++;
                     if ( circleScore < 20 ) {
                         increaseCircleScore();
                     } else if (circleScore === 20) {
                         if (document.querySelector(`#circle${circle.id}`)) {
+                            console.log("Miss");
                             window.removeEventListener("keypress", registerKey);
                             mainContainer.removeChild(document.querySelector(`#circle${circle.id}`));
                         }
