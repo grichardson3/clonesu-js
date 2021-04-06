@@ -1,4 +1,43 @@
+body {
+    background-color: #222;
+    overflow: hidden;
+    user-select: none;
+}
+
+button {
+    background-color: hotpink;
+    border: 0;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 4em;
+    font-weight: 400;
+    letter-spacing: 5px;
+    outline: 0;
+    padding: 20px;
+    text-align: center;
+    transition: .3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #cc5390;
+    transition: .3s ease;
+}
+
+h1, h2, h3, h4, h5, h6, p, span {
+    color: white;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .osuCircle {
+    background: red;
     border: 2px solid black;
     border-radius: 50%;
     color: white;
@@ -26,18 +65,16 @@
     position: absolute;
     font-size: 3em;
     right: 20px;
+    top: 10px;
     text-align: right;
     user-select: none;
 }
 
-#circle1 {
-    background: red;
-}
-
-#circle2 {
-    background: green;
-}
-
-#circle3 {
-    background: blue;
+#totalHealthText {
+    position: absolute;
+    font-size: 3em;
+    right: 20px;
+    top: 70px;
+    text-align: right;
+    user-select: none;
 }
