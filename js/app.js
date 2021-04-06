@@ -85,7 +85,7 @@ var menuScreen = function(gameData){
 }
 
 // Sets up UI for game
-var setGameUI = function(){
+var renderGameUI = function(){
 
     // Integer Values
     var totalScoreUI = 0;
@@ -103,6 +103,10 @@ var setGameUI = function(){
 
     mainContainer.appendChild(createTotalScoreText);
     mainContainer.appendChild(createTotalHealthText);
+}
+
+var renderFailUI = function(){
+    console.log("u suck");
 }
 
 var finishGame = function (totalScore) {
@@ -143,7 +147,7 @@ var playGame = function(gameData){
     let totalHealth = 50;
 
     // Creation of game UI elements
-    setGameUI();
+    renderGameUI();
 
     // Selectors for the UI
     var totalScoreText = document.querySelector("#totalScoreText");
@@ -178,9 +182,11 @@ var playGame = function(gameData){
                                 console.log("Poor");
                                 totalScore += circleScore;
                                 if (totalHealth !== 100) {
-                                    totalHealth = totalHealth + 5;
+                                    totalHealth = totalHealth - 10;
                                     if (totalHealth > 100) {
                                         totalHealth = 100;
+                                    } else if (totalHealth <= 0) {
+                                        renderFailUI();
                                     }
                                 }
                                 break;
@@ -188,9 +194,11 @@ var playGame = function(gameData){
                                 console.log("OK");
                                 totalScore += circleScore;
                                 if (totalHealth !== 100) {
-                                    totalHealth = totalHealth + 8;
+                                    totalHealth = totalHealth - 0;
                                     if (totalHealth > 100) {
                                         totalHealth = 100;
+                                    } else if (totalHealth <= 0) {
+                                        renderFailUI();
                                     }
                                 }
                                 break;
@@ -198,9 +206,11 @@ var playGame = function(gameData){
                                 console.log("Good");
                                 totalScore += circleScore;
                                 if (totalHealth !== 100) {
-                                    totalHealth = totalHealth + 12;
+                                    totalHealth = totalHealth + 5;
                                     if (totalHealth > 100) {
                                         totalHealth = 100;
+                                    } else if (totalHealth <= 0) {
+                                        renderFailUI();
                                     }
                                 }
                                 break;
@@ -208,9 +218,11 @@ var playGame = function(gameData){
                                 console.log("Excellent");
                                 totalScore += circleScore;
                                 if (totalHealth !== 100) {
-                                    totalHealth = totalHealth + 15;
+                                    totalHealth = totalHealth + 10;
                                     if (totalHealth > 100) {
                                         totalHealth = 100;
+                                    } else if (totalHealth <= 0) {
+                                        renderFailUI();
                                     }
                                 }
                                 break;
@@ -218,9 +230,11 @@ var playGame = function(gameData){
                                 console.log("Perfect");
                                 totalScore += circleScore;
                                 if (totalHealth !== 100) {
-                                    totalHealth = totalHealth + 20;
+                                    totalHealth = totalHealth + 15;
                                     if (totalHealth > 100) {
                                         totalHealth = 100;
+                                    } else if (totalHealth <= 0) {
+                                        renderFailUI();
                                     }
                                 }
                                 break;
@@ -256,6 +270,10 @@ var playGame = function(gameData){
 
                                 window.removeEventListener("keypress", registerKey);
                                 mainContainer.removeChild(document.querySelector(`#circle${circle.id}`));
+
+                                if (totalHealth <= 0) {
+                                    renderFailUI();
+                                }
                             }
                         }
                     }, 10);
